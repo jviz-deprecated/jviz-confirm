@@ -14,12 +14,25 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
 <dom-module id="jviz-confirm">
   <template>
     <style>
-
+      :host .content
+      {
+        margin-top: 0px;
+        margin-bottom: 10px;
+      }
+      :host .buttons
+      {
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
     </style>
     <jviz-dialog id="dialog" header$="{{ header }}">
-      <p><content></content></p>
-      <jviz-btn color="green" text$="{{ textConfirm }}" on-tap="_on_confirm"></jviz-btn>
-      <jviz-btn color="red" text$="{{ textCancel }}" on-tap="_on_cancel"></jviz-btn>
+      <div class="content">
+        <content></content>
+      </div>
+      <div class="buttons">
+        <jviz-btn color="green" text$="{{ textConfirm }}" on-tap="_on_confirm"></jviz-btn>
+        <jviz-btn color="red" text$="{{ textCancel }}" on-tap="_on_cancel"></jviz-btn>
+      </div>
     </jviz-dialog>
   </template>
 </dom-module>
@@ -48,7 +61,7 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
   {
     //Hide the dialog
     this.$.dialog.visible = false;
-    
+
     //Emit the confirm event
     return this.fire('confirm', {});
   };
