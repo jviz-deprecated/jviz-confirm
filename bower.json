@@ -1,0 +1,15 @@
+{
+  "name": "jviz-confirm",
+  "description": "A confirmation dialog element",
+  "ignore": [ "**/.*", "node_modules", "bower_components" ],
+  "dependencies":
+  {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "jviz": "jviz/jviz#dev",
+    "jviz-dialog": "jviz/jviz-dialog#dev",
+    "jviz-btn": "jviz/jviz-btn#dev"
+  },
+  "license": "MIT",
+  "authors": [ "Josemi Juanes <josemijuanes@gmail.com>" ],
+  "keywords": [ "jviz", "webcomponents", "jviz-components", "confirmation-dialog", "confirmation" ]
+}
