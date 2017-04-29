@@ -1,0 +1,62 @@
+<!--
+@license
+Copyright (c) 2016 The Jviz Project Authors. All rights reserved.
+The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob/dev/LICENSE
+-->
+
+<!-- Import dependencies -->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../jviz/jviz.html">
+<link rel="import" href="../jviz-dialog/jviz-dialog.html">
+<link rel="import" href="../jviz-btn/jviz-btn.html">
+
+<!-- Confirmation element -->
+<dom-module id="jviz-confirm">
+  <template>
+    <style>
+
+    </style>
+    <jviz-dialog id="dialog" header$="{{ header }}">
+      <p><content></content></p>
+      <jviz-btn color="green" text$="{{ textConfirm }}" on-tap="_on_confirm"></jviz-btn>
+      <jviz-btn color="red" text$="{{ textCancel }}" on-tap="_on_cancel"></jviz-btn>
+    </jviz-dialog>
+  </template>
+</dom-module>
+
+<!-- Element logic -->
+<script>
+  //Initialize the confirm element
+  var jviz_confirm = { is: 'jviz-confirm' };
+
+  //Initialize the properties
+  jviz_confirm.properties = {};
+  jviz_confirm.properties.header = { type: String, reflectToAttribute: true, value: '' };
+  jviz_confirm.properties.visible = { type: Boolean, reflectToAttribute: true, value: false, observer: '_update_visible' };
+  jviz_confirm.properties.textConfirm = { type: String, reflectToAttribute: true, value: 'Confirm' };
+  jviz_confirm.properties.textCancel = { type: String, reflectToAttribute: true, value: 'Cancel' };
+
+  //Update the visible value
+  jviz_confirm._update_visible = function(value)
+  {
+    //Update the dialog visible property
+    this.$.dialog.visible = value;
+  };
+
+  //Click on confirm button
+  jviz_confirm._on_confirm = function()
+  {
+    //Emit the confirm event
+    return this.fire('confirm', {});
+  };
+
+  //Click on cancel button
+  jviz_confirm._on_cancel = function()
+  {
+    //Emit the cancel event
+    return this.fire('cancel', {});
+  };
+
+  //Register the confirm element
+  Polymer(jviz_confirm);
+</script>
