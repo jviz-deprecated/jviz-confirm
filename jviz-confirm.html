@@ -49,6 +49,20 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
   jviz_confirm.properties.textConfirm = { type: String, reflectToAttribute: true, value: 'Confirm' };
   jviz_confirm.properties.textCancel = { type: String, reflectToAttribute: true, value: 'Cancel' };
 
+  //Attached method
+  jviz_confirm.attached = function()
+  {
+    //Save this
+    var self = this;
+    
+    //Add the dialog close event listener
+    this.$.dialog.addEventListener('close', function()
+    {
+      //Emit the cancel event
+      return self._on_cancel();
+    });
+  };
+
   //Update the visible value
   jviz_confirm._update_visible = function(value)
   {
