@@ -54,7 +54,7 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
   {
     //Save this
     var self = this;
-    
+
     //Add the dialog close event listener
     this.$.dialog.addEventListener('close', function()
     {
@@ -89,6 +89,12 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
     //Emit the cancel event
     return this.fire('cancel', {});
   };
+
+  //Show method
+  jviz_confirm.show = function(){ this.visible = true; };
+
+  //Close method
+  jviz_confirm.hide = function(){ this.visible = false; };
 
   //Register the confirm element
   Polymer(jviz_confirm);
