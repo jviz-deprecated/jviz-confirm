@@ -46,6 +46,9 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
   //Click on confirm button
   jviz_confirm._on_confirm = function()
   {
+    //Hide the dialog
+    this.$.dialog.visible = false;
+    
     //Emit the confirm event
     return this.fire('confirm', {});
   };
