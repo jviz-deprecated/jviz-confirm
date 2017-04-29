@@ -1,0 +1,30 @@
+<!--
+@license
+Copyright (c) 2016 The Jviz Project Authors. All rights reserved.
+The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob/dev/LICENSE
+-->
+
+<!-- Import confirm element -->
+<link rel="import" href="../jviz-confirm.html">
+
+<!-- Confirm element -->
+<jviz-confirm id="test" visible>Are you sure</jviz-confirm>
+
+<!-- Demo logic -->
+<script>
+  //Confirm element
+  var el = null;
+
+  //Dom ready
+  jviz.dom.redy(function()
+  {
+    //Get the confirm element
+    el = jviz.dom.id('test');
+
+    //Add the confirm event listener
+    el.addEventListener('confirm', function(){ console.log('Confirmed!!'); });
+
+    //Add the cancel event listener
+    el.addEventListener('cancel', function(){ console.log('Cancelled'); });
+  });
+</script>
