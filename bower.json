@@ -6,7 +6,7 @@
   {
     "polymer": "Polymer/polymer#^1.4.0",
     "jviz": "jviz/jviz#dev",
-    "jviz-dialog": "jviz/jviz-dialog#dev",
+    "jviz-popup": "jviz/jviz-popup#dev",
     "jviz-btn": "jviz/jviz-btn#dev"
   },
   "license": "MIT",
