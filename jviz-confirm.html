@@ -25,7 +25,7 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
         margin-bottom: 0px;
       }
     </style>
-    <jviz-dialog id="dialog" header$="{{ header }}">
+    <jviz-popup id="popup" header$="{{ header }}">
       <div class="content">
         <content></content>
       </div>
@@ -33,7 +33,7 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
         <jviz-btn color="green" text$="{{ textConfirm }}" on-tap="_on_confirm"></jviz-btn>
         <jviz-btn color="red" text$="{{ textCancel }}" on-tap="_on_cancel"></jviz-btn>
       </div>
-    </jviz-dialog>
+    </jviz-popup>
   </template>
 </dom-module>
 
@@ -55,8 +55,8 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
     //Save this
     var self = this;
 
-    //Add the dialog close event listener
-    this.$.dialog.addEventListener('close', function()
+    //Add the popup close event listener
+    this.$.popup.addEventListener('close', function()
     {
       //Emit the cancel event
       return self._on_cancel();
@@ -66,14 +66,14 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
   //Update the visible value
   jviz_confirm._update_visible = function(value)
   {
-    //Update the dialog visible property
-    this.$.dialog.visible = value;
+    //Update the popup visible property
+    this.$.popup.visible = value;
   };
 
   //Click on confirm button
   jviz_confirm._on_confirm = function()
   {
-    //Hide the dialog
+    //Hide the popup
     this.visible = false;
 
     //Emit the confirm event
@@ -83,7 +83,7 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
   //Click on cancel button
   jviz_confirm._on_cancel = function()
   {
-    //Hide the dialog
+    //Hide the popup
     this.visible = false;
 
     //Emit the cancel event
